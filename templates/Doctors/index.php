@@ -11,8 +11,10 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
+                    <th><?= $this->Paginator->sort('id_doctor') ?></th>
+                    <th><?= $this->Paginator->sort('id_specialization') ?></th>
                     <th><?= $this->Paginator->sort('name') ?></th>
+                    <th><?= $this->Paginator->sort('surname') ?></th>
                     <th><?= $this->Paginator->sort('identity_code') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
@@ -20,8 +22,10 @@
             <tbody>
                 <?php foreach ($doctors as $doctor): ?>
                 <tr>
-                    <td><?= $this->Number->format($doctor->id) ?></td>
+                    <td><?= $this->Number->format($doctor->id_doctor) ?></td>
+                    <td><?= $this->Number->format($doctor->id_specialization) ?></td>
                     <td><?= h($doctor->name) ?></td>
+                    <td><?= h($doctor->surname) ?></td>
                     <td><?= h($doctor->identity_code) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $doctor->id]) ?>

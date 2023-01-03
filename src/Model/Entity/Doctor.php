@@ -9,8 +9,10 @@ use Cake\ORM\Entity;
 /**
  * Doctor Entity
  *
- * @property int $id
+ * @property int $id_doctor
+ * @property int $id_specialization
  * @property string $name
+ * @property string $surname
  * @property string $identity_code
  * @property string $password
  */
@@ -26,7 +28,9 @@ class Doctor extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
+        'id_specialization' => true,
         'name' => true,
+        'surname' => true,
         'identity_code' => true,
         'password' => true,
     ];

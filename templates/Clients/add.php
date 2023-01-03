@@ -1,28 +1,26 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Doctor $doctor
+ * @var \App\Model\Entity\Client $client
  */
 ?>
 <div class="row">
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Doctors'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('List Clients'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
-        <div class="doctors form content">
-            <?= $this->Form->create($doctor) ?>
+        <div class="clients form content">
+            <?= $this->Form->create($client) ?>
             <fieldset>
-                <legend><?= __('Add Doctor') ?></legend>
+                <legend><?= __('Add Client') ?></legend>
                 <?php
-                    echo $this->Form->control('id_doctor');
-                    echo $this->Form->control('id_specialization');
                     echo $this->Form->control('name');
                     echo $this->Form->control('surname');
-                    echo $this->Form->control('identity_code');
-                    echo $this->Form->control('password');
+                    echo $this->Form->control('pesel');
+                    echo $this->Form->control('phone');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

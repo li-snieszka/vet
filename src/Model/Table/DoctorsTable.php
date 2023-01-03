@@ -39,7 +39,7 @@ class DoctorsTable extends Table
 
         $this->setTable('doctors');
         $this->setDisplayField('name');
-        $this->setPrimaryKey('id');
+        $this->setPrimaryKey('id_doctor');
     }
 
     /**
@@ -51,23 +51,49 @@ class DoctorsTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
+            ->integer('id_specialization')
+            ->requirePresence('id_specialization', 'create')
+            ->notEmptyString('id_specialization');
+
+        $validator
             ->scalar('name')
-            ->maxLength('name', 250)
+            ->maxLength('name', 20)
             ->requirePresence('name', 'create')
             ->notEmptyString('name');
 
         $validator
+            ->scalar('surname')
+            ->maxLength('surname', 20)
+            ->requirePresence('surname', 'create')
+            ->notEmptyString('surname');
+
+        $validator
             ->scalar('identity_code')
-            ->maxLength('identity_code', 250)
+            ->maxLength('identity_code', 20)
             ->requirePresence('identity_code', 'create')
-            ->notEmptyString('identity_code');
+            ->notEmptyString('identity_code')
+            ->add('identity_code', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
             ->scalar('password')
-            ->maxLength('password', 250)
+            ->maxLength('password', 20)
             ->requirePresence('password', 'create')
             ->notEmptyString('password');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules): RulesChecker
+    {
+        $rules->add($rules->isUnique(['identity_code']), ['errorField' => 'identity_code']);
+
+        return $rules;
     }
 }

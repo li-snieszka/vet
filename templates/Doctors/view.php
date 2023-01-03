@@ -23,12 +23,20 @@
                     <td><?= h($doctor->name) ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Surname') ?></th>
+                    <td><?= h($doctor->surname) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Identity Code') ?></th>
                     <td><?= h($doctor->identity_code) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($doctor->id) ?></td>
+                    <th><?= __('Id Doctor') ?></th>
+                    <td><?= $this->Number->format($doctor->id_doctor) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Id Specialization') ?></th>
+                    <td><?= $this->Number->format($doctor->id_specialization) ?></td>
                 </tr>
             </table>
         </div>

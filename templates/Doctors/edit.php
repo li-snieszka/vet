@@ -22,7 +22,10 @@
             <fieldset>
                 <legend><?= __('Edit Doctor') ?></legend>
                 <?php
+                    echo $this->Form->control('id_doctor');
+                    echo $this->Form->control('id_specialization');
                     echo $this->Form->control('name');
+                    echo $this->Form->control('surname');
                     echo $this->Form->control('identity_code');
                     echo $this->Form->control('password');
                 ?>
